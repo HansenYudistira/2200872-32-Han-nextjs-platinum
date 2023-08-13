@@ -13,7 +13,6 @@
     position: relative;
     border-radius: 8px;
     background: #1c1c1c;
-    /* border: 5px solid black; */
 }
 
 .boxClass::before {

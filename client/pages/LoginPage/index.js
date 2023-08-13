@@ -15,20 +15,20 @@ import { LoginApi } from '../../api-lib/LoginApi'
 const antIcon = (
     <LoadingOutlined
     style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: 20,
-      fontWeight: 70,
-      color: 'blue',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 20,
+        color: 'blue',
     }}
-    spin/>)
+spin/>)
 
 function LoginPage() {
     const [inputs, setInputs] = useState({})
     const [showAlert, setShowAlert] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
     const [showSpinner, setShowSpinner] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handleChange = (event) => {
         const name = event.target.name
@@ -45,10 +45,9 @@ function LoginPage() {
                 return
             }
 
+            setLoading(true)
             setShowSpinner(true)
-
             const result = await LoginApi(inputs)
-
             setShowSpinner(false)
 
             if (!result) {
@@ -174,31 +173,24 @@ function LoginPage() {
         </Link>
         </div>
 
-        {/* <div
-            className={
-                `${styles.ButtonContainerClass}`
-            }>
-        {/* <Button
-            className={
-                `${styles.ButtonClass}`
-            }
-            type="button"
-            onclick="goToHomePage()"
-            onClick={handleSubmit}
-            href="/RegisterPage">
-                BACK
-        </Button> 
-
-        </div> */}
         <div 
             className={
                 `${styles.ButtonContainerClass}`
             }>
         <Button
-            className={`${styles.SubmitClass}`}
-            type="submit"
-            onClick={handleSubmit}>
-            {showSpinner ? <Spin indicator={antIcon} /> : 'LOGIN'}
+            className={
+                `${styles.SubmitClass}`
+            }
+                type="submit"
+                onClick={handleSubmit}>
+                {showSpinner ? (
+        <span style={{ display: 'flex', alignItems: 'center' }}>
+                <Spin indicator={antIcon} />
+                <span style={{ marginLeft: 31 }}></span>
+        </span>
+            ) : (
+                'LOGIN'
+            )}
         </Button>
         </div>
 

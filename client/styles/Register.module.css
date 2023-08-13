@@ -13,7 +13,6 @@
     position: relative;
     border-radius: 8px;
     background: #1c1c1c;
-    /* border: 5px solid black; */
 }
   
 .boxClass::before {
@@ -196,18 +195,6 @@ input:focus ~ .divClass {
     margin-top: 20px;
 }
 
-.ButtonClass {
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 0.9em;
-    font-weight: 900;
-    padding: 10px 50px;
-    background: #fff;
-    margin-right: 1px;
-    border-radius: 4px;
-}
-
 .SubmitClass {
     border: none;
     margin: 0 4px;
@@ -215,16 +202,9 @@ input:focus ~ .divClass {
     cursor: pointer;
     font-size: 0.9em;
     font-weight: 900;
-    /* padding: 10px 35px; */
     padding: 10px 107px;
     background: #fff;
     border-radius: 4px;
-}
-
-.ButtonClass:hover {
-    color: white;
-    transition: 0.5s;
-    background: blue;
 }
 
 .SubmitClass:hover {

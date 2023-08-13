@@ -14,11 +14,10 @@ const antIcon = (
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: 19,
-        fontWeight: 900,
+        fontSize: 20,
         color: 'blue',
     }}
-    spin/>)
+spin/>)
 
 function ResetPasswordPage() {
     const [inputs, setInputs] = useState({})
@@ -26,7 +25,8 @@ function ResetPasswordPage() {
     const [alertMessage, setAlertMessage] = useState('')
     const [showResetSpinner, setShowResetSpinner] = useState(false)
     const [showBackSpinner, setShowBackSpinner] = useState(false)
-  
+    const [loading, setLoading] = useState(false)
+
     const handleChange = (event) => {
         const name = event.target.name
         const value = event.target.value
@@ -45,6 +45,7 @@ function ResetPasswordPage() {
         try {
             if (!inputs.email) {
             setShowAlert(true)
+            setLoading(true)
             setAlertMessage('FAILED ❗ PLEASE ENTER YOUR EMAIL')
             return
         }
@@ -52,6 +53,7 @@ function ResetPasswordPage() {
         setTimeout(() => {
             setShowResetSpinner(false)
             setShowAlert(true)
+            setLoading(true)
             setAlertMessage('SUCCESS ✅ CHECK YOUR EMAIL TO RESET YOUR PASSWORD')
         }, 2000)
     } catch (error) {
@@ -131,25 +133,37 @@ function ResetPasswordPage() {
             className={
                 `${styles.ButtonContainerClass}`
             }>
-
         <Button
             className={
                 `${styles.ButtonClass}`
             }
             type="button"
             onClick={handleBackClick}>
-            {showBackSpinner ? <Spin indicator={antIcon} /> : 'BACK'}
+            {showBackSpinner ? (
+        <span style={{ display: 'flex', alignItems: 'center' }}>
+            <Spin indicator={antIcon} />
+            <span style={{ marginLeft: 25 }}></span>
+        </span>
+            ) : (
+                'BACK'
+            )}
         </Button>
 
         <Button
             className={
                 `${styles.SubmitClass}`
             }
-            onClick={handleResetClick}
-            type="submit">
-            {showResetSpinner ? <Spin indicator={antIcon} /> : 'RESET'}
+                type="submit"
+                onClick={handleResetClick}>
+                {showResetSpinner ? (
+        <span style={{ display: 'flex', alignItems: 'center' }}>
+            <Spin indicator={antIcon} />
+            <span style={{ marginLeft: 33 }}></span>
+        </span>
+            ) : (
+                'RESET'
+            )}
         </Button>
-
         </div>
 
         </div>

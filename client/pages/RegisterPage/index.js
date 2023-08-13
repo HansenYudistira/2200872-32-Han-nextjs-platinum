@@ -13,22 +13,22 @@ import styles from '../../styles/Register.module.css'
 import { RegisterApi } from '../../api-lib/RegisterApi'
 
 const antIcon = (
-  <LoadingOutlined
-  style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: 20,
-    fontWeight: 70,
-    color: 'blue',
-  }}
-  spin/>)
+    <LoadingOutlined
+    style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 20,
+        color: 'blue',
+    }}
+spin/>)
 
 function RegisterPage() {
     const [inputs, setInputs] = useState({})
     const [showAlert, setShowAlert] = useState(false)
     const [alertMessage, setAlertMessage] = useState('')
     const [showSpinner, setShowSpinner] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handleChange = (event) => {
         const name = event.target.name
@@ -45,10 +45,9 @@ function RegisterPage() {
                 return
             }
 
+            setLoading(true)
             setShowSpinner(true)
-
             const result = await RegisterApi(inputs)
-
             setShowSpinner(false)
 
             if (!result) {
@@ -223,27 +222,24 @@ function RegisterPage() {
         </Link>
         </div>
 
-        <div 
+        <div
             className={
                 `${styles.ButtonContainerClass}`
             }>
-
-        {/* <Button
-            className={
-                `${styles.ButtonClass}`
-            }
-            type="button"
-            onClick={handleSubmit} >
-                BACK
-        </Button>  */}
-
         <Button
             className={
                 `${styles.SubmitClass}`
             }
                 type="submit"
                 onClick={handleSubmit}>
-                {showSpinner ? <Spin indicator={antIcon} /> : 'REGISTER'}
+                {showSpinner ? (
+        <span style={{ display: 'flex', alignItems: 'center' }}>
+                <Spin indicator={antIcon} />
+                <span style={{ marginLeft: 62 }}></span>
+            </span>
+        ) : (
+            'REGISTER'
+        )}
         </Button>
         </div>
 
