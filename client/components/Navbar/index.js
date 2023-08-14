@@ -11,8 +11,6 @@ import {
   UncontrolledTooltip
 } from 'reactstrap';
 
-import Image from 'next/image';
-
 // import component 
 import LogoutModal from '../LandingPage/logoutModal';
 
@@ -58,7 +56,7 @@ function navbar(args){
       <div>
       <Navbar  style={{ backgroundColor: '#4E67EB' }} dark expand="md">
       <NavbarBrand href="/">
-        <Image src="/images/logo.jpeg" width={50} height={50} id="logoToHome"/>
+        <img src="/images/logo.jpeg" width={50} height={50} id="logoToHome"/>
         <UncontrolledTooltip
                 placement="right"
                 target="logoToHome"
