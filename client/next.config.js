@@ -3,7 +3,7 @@ module.exports = {
     unoptimized: true,
   },
   env: {
-    REACT_APP_BE_URL: 'REACT_APP_BE_URL: https://gifted-mittens-mite.cyclic.app'
+    REACT_APP_BE_URL: 'https://gifted-mittens-mite.cyclic.app'
   },
   devIndicators: {
     buildActivity: false
