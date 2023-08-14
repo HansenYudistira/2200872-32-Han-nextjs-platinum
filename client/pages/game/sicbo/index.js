@@ -3,7 +3,6 @@ import { Button, Modal, ModalBody, ModalFooter, ModalHeader, Spinner } from 'rea
 
 // import components
 import SicboRules from "./rules";
-import Image from "next/image";
 import { useRouter } from 'next/router'
 
 // import redux
@@ -314,13 +313,13 @@ export default function Sicbo() {
                 <div className="d-flex justify-content-center" style={{gap: "20px"}}>
                     {diceResult.map((die) => {
                         return (
-                            <Image
+                            <img
                                 src={`/images/game/SicboGame/${die}.png`}
                                 alt=""
                                 width="75rem"
                                 height="75rem"
                                 className={styles.sicboDice}
-                            ></Image>
+                            ></img>
                         )
                     })}                    
                 </div>

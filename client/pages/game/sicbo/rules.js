@@ -1,7 +1,5 @@
 import React from "react";
 
-import Image from "next/image";
-
 // import css
 import styles from '../../../styles/games/Sicbo.module.css'
 
@@ -9,12 +7,12 @@ export default function SicboRules() {
     return (
         <div className={styles.sicboRules}>
             <div className="d-flex justify-content-center">
-                <Image
+                <img
                     src="/images/game/SicboGame/dragon.png"
                     width="250rem"
                     height="70rem"
                     >
-                </Image>
+                </img>
             </div>
             <br></br>
             <span> 
